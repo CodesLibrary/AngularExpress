@@ -1,0 +1,36 @@
+
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1>Place for Codes</h1>
+    <p>Here you can find all our connection which help to create <STRONG class="text-success">Web Application</STRONG></p>
+      <a class="btn btn-primary" routerLink = '/product'> + Add Product</a>
+  </div>
+</div>
+
+
+<div class="container">
+    <input [(ngModel)]="searchTerm" placeholder="search text goes here">{{searchTerm}}
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <th>Last Name</th>
+      <th>First Name</th>
+      <th>Address</th>
+      <th>City</th>
+      <th></th>
+      <th></th>
+    </thead>
+     <tbody>
+      <tr *ngFor = "let data of allData | search:searchTerm">
+     
+        <td>{{data.LastName}}</td>
+        <td><a href="{{data.FirstName}}">{{data.FirstName}}</a></td>
+        <td>{{data.Address}}</td>
+        <td>{{data.City}}</td>
+        <td align="center"><a (click) = "deleteProduct(data.id)" class="btn btn-danger btn-sm">DELETE</a></td>
+        <td align="center"><a [routerLink] = "['/updateProduct', data.id]" class="btn btn-success btn-sm">UPDATE</a></td>
+      </tr>
+     </tbody>
+    
+    </table>
+</div>
